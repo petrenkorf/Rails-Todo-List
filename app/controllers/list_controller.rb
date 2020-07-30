@@ -1,4 +1,4 @@
-class ListController < ApplicationController
+class ListController < DashboardController
   def index
 
   end
