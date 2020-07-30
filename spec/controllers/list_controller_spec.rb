@@ -6,5 +6,11 @@ RSpec.describe ListController do
       get :index
       assert_redirected_to new_user_session_path
     end
+
+    it "is ok when user is authenticated" do
+      sign_in
+      get :index
+      assert_response 200
+    end
   end
 end
