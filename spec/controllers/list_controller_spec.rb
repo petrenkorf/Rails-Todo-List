@@ -8,21 +8,21 @@ RSpec.describe ListController do
     end
 
     it "is ok when user is authenticated" do
-      sign_in
+      user = double('Petris', :lists => [])
+      
+      sign_in user
       get :index
+      
       assert_response 200
     end
 
     it "gets lists belonging to authenticated user" do
-      user = create(:user)
-      
-      allow(controller).to receive(:current_user).and_return(user)
-      expect(user).to receive(:lists).and_return(nil)
-      
-      sign_in
+      user = double('Petris', :lists => [])
+
+      sign_in user
       get :index
     
-      expect(@controller.instance_variable_get(:@lists)).to be(nil)
+      expect(controller.instance_variable_get(:@lists)).to eq([])
     end
   end
 end
