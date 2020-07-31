@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'list#index' 
   get '/lists', to: 'list#index'
   get '/lists/new', to: 'list#new'
+  post '/lists/new', to: 'list#create'
 end

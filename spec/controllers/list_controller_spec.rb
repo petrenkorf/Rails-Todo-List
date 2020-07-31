@@ -37,4 +37,11 @@ RSpec.describe ListController do
       assert_response 200
     end
   end
+
+  describe "POST create" do
+    it "is not authenticated" do
+      post :create
+      assert_redirected_to new_user_session_path
+    end
+  end
 end
