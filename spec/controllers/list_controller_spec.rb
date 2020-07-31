@@ -1,6 +1,8 @@
 require "rails_helper"
 
 RSpec.describe ListController do
+  let(:user) {double('Petris', :lists => [])}
+
   describe "GET index" do
     it "redirects when user is not authenticated" do
       get :index
@@ -8,8 +10,6 @@ RSpec.describe ListController do
     end
 
     it "is ok when user is authenticated" do
-      user = double('Petris', :lists => [])
-      
       sign_in user
       get :index
       
@@ -17,8 +17,6 @@ RSpec.describe ListController do
     end
 
     it "gets lists belonging to authenticated user" do
-      user = double('Petris', :lists => [])
-
       sign_in user
       get :index
     
@@ -33,8 +31,6 @@ RSpec.describe ListController do
     end
 
     it "is ok when user is authenticated" do
-      user = double('Petris', :lists => [])
-      
       sign_in user
       get :new
       
