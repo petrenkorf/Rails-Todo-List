@@ -1,0 +1,2 @@
+class ListsFormPage < BasePage
+end

@@ -1,0 +1,2 @@
+class ListsPage < BasePage
+end
