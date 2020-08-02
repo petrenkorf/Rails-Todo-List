@@ -21,7 +21,11 @@ RSpec.describe List do
     expect(list.valid?).to be false
   end
 
-  it "is not valid if title length is greater than 100 characters"
+  it "is not valid if title length is greater than 100 characters" do
+    list = List.create(user_id: 1, title: "a"*101, public: true)
+
+    expect(list.valid?).to be false
+  end
 
   it "can be closed"
 
