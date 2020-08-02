@@ -4,27 +4,19 @@ RSpec.describe List do
   fixtures :users
 
   it "is valid with attributes" do
-    list = List.create(user_id: 1, title: "title", public: true)
-
-    expect(list.valid?).to be true
+    expect(List.create(user_id: 1, title: "title", public: true).valid?).to be true
   end
 
   it "is not valid with empty title" do
-    list = List.create(user_id: 1, public: true)
-
-    expect(list.valid?).to be false
+    expect(List.create(user_id: 1, public: true).valid?).to be false
   end
 
   it "is not valid without visibility" do
-    list = List.create(user_id: 1, title: "title")
-
-    expect(list.valid?).to be false
+    expect(List.create(user_id: 1, title: "title").valid?).to be false
   end
 
   it "is not valid if title length is greater than 100 characters" do
-    list = List.create(user_id: 1, title: "a"*101, public: true)
-
-    expect(list.valid?).to be false
+    expect(List.create(user_id: 1, title: "a"*101, public: true).valid?).to be false
   end
 
   it "can be closed"
