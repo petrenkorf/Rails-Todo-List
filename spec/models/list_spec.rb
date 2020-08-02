@@ -9,7 +9,11 @@ RSpec.describe List do
     expect(list.valid?).to be true
   end
 
-  it "is not valid with empty title"
+  it "is not valid with empty title" do
+    list = List.create(user_id: 1, public: true)
+
+    expect(list.valid?).to be false
+  end
 
   it "is not valid with visibility different than boolean values"
 
