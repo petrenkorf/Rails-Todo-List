@@ -1,7 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe List do
-  it "is valid with attributes"
+  fixtures :users
+
+  it "is valid with attributes" do
+    list = List.create(user_id: 1, title: "title", public: true)
+
+    expect(list.valid?).to be true
+  end
 
   it "is not valid with empty title"
 
