@@ -6,7 +6,7 @@ class ListsFormPage < BasePage
   end
 
   def fill_form(title, visibility)
-    fill_in "title", with: title
+    fill_in "list[title]", with: title
 
     self
   end

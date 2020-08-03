@@ -21,6 +21,7 @@ RSpec.describe "User creates a list" do
         .submit
 
       expect(current_path).to eql(lists_path)
+      expect(page).to have_selector('.card', count: 1)
     end
   end
 end
