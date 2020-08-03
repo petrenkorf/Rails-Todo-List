@@ -17,7 +17,7 @@ class ListController < DashboardController
   end
 
   def close
-    List.find(params[:id]).close.save
+    List.where(id: params[:id], user_id: current_user.id).first.close.save
 
     redirect_to lists_path
   end
