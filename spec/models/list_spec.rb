@@ -33,5 +33,7 @@ RSpec.describe List do
     expect(List.new(valid_params).close.closed?).to be(true)
   end
 
-  it "has tasks associated"
+  it "has tasks associated" do
+    expect(List.new(valid_params).tasks).to be_truthy
+  end
 end

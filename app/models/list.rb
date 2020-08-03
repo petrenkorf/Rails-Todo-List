@@ -3,6 +3,7 @@ class List < ApplicationRecord
   validates :public, inclusion: [false, true]
 
   belongs_to :user
+  has_many :tasks
 
   after_initialize :init
 
