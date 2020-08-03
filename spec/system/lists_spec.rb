@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "User creates a list" do
   let(:login_page) {LoginPage.new}
-  let(:list_form_page) {ListFormPage.new}
+  let(:list_form_page) {ListsFormPage.new}
 
   fixtures :users
   
@@ -14,6 +14,13 @@ RSpec.describe "User creates a list" do
         .submit
 
       expect(current_path).to eql(lists_path) 
+
+      list_form_page
+        .visit_page
+        .fill_form("Description", :public)
+        .submit
+
+      expect(current_path).to eql(lists_path)
     end
   end
 end

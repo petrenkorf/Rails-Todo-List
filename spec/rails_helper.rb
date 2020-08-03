@@ -9,6 +9,7 @@ require 'support/controller_helpers'
 require 'support/page_objects/base_page'
 require 'support/page_objects/login_page'
 require 'support/page_objects/lists_page'
+require 'support/page_objects/lists_page_form'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
