@@ -16,6 +16,10 @@ class ListController < DashboardController
     redirect_to lists_path
   end
 
+  def close
+    redirect_to lists_path
+  end
+
   protected
 
   def list_params

@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/lists', to: 'list#index'
   get '/lists/new', to: 'list#new'
   post '/lists/new', to: 'list#create'
+  post '/lists/close', to: 'list#close'
   get '/lists/public', to: 'public_list#index'
 end

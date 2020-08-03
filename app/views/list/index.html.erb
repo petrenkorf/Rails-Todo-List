@@ -1,8 +1,10 @@
 <div class="cards-container">
   <% @lists.each do |l|%>
-    <div class="card">
-      Card
-
+    <div class="card <%= 'closed' if !l.open? %>">
+      <%= l.title  %>
+      <% if l.open? %>
+        <%= link_to "Close", lists_close_path(id: l.id), method: :post %>
+      <% end %>
     </div>  
   <% end %>
-</div<
+</div>
