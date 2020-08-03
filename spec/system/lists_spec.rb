@@ -1,13 +1,13 @@
 require "rails_helper"
 
-RSpec.describe "User creates a list" do
+RSpec.describe "User access list page" do
   let(:login_page) {LoginPage.new}
   let(:list_form_page) {ListsFormPage.new}
 
   fixtures :users
   
-  context "without tasks" do
-    it "redirects to lists page with success message" do
+  context "without any list registered" do
+    it "create without tasks" do
       login_page
         .visit_page
         .fill_form("user1@email.com", "password")
@@ -23,10 +23,8 @@ RSpec.describe "User creates a list" do
       expect(current_path).to eql(lists_path)
       expect(page).to have_selector('.card', count: 1)
     end
-  end
-
-  context "with task" do
-    it "redirects to lists page with success message" do
+ 
+    it "create list with task" do
       login_page
         .visit_page
         .fill_form("user1@email.com", "password")
