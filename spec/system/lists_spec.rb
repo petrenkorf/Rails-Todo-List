@@ -13,7 +13,7 @@ RSpec.describe "User creates a list" do
         .fill_form("user1@email.com", "password")
         .submit
 
-      expect(current_path).to eql(root_path) 
+      expect(current_path).to eql(lists_path) 
     end
   end
 end
