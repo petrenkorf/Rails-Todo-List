@@ -20,9 +20,7 @@ RSpec.describe List do
   end
 
   it "is not valid without visibility" do
-    list = List.create(user_id: 1, title: "title")
-
-    expect(list.valid?).to be true
+    expect(List.create(user_id: 1, title: "title").valid?).to be true
   end
 
   it "is not valid if title length is greater than 100 characters" do
