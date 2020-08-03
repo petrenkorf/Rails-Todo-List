@@ -1,0 +1,13 @@
+list1: 
+  id: 1
+  title: "User 1 list 1"
+  public: 1
+  closed: 0
+  user_id: 1
+
+list2: 
+  id: 2
+  title: "User 2 list 1"
+  public: 1
+  closed: 0
+  user_id: 2
