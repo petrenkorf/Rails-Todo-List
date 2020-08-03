@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(version: 2020_08_03_004040) do
   end
 
   create_table "tasks", force: :cascade do |t|
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "list_id"
+    t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +43,5 @@ ActiveRecord::Schema.define(version: 2020_08_03_004040) do
   end
 
   add_foreign_key "lists", "users"
+  add_foreign_key "tasks", "lists"
 end

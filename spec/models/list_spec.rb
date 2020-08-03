@@ -36,4 +36,12 @@ RSpec.describe List do
   it "has tasks associated" do
     expect(List.new(valid_params).tasks).to be_truthy
   end
+
+  it "saves tasks using nested_attributes" do
+    params = {user_id: 1, title: "titulo", public: true, tasks_attributes: [{description: "task description"}]}
+    list = List.new(params)
+    list.save
+
+    expect(list.tasks.count).to be(1)
+  end
 end
