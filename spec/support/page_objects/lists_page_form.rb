@@ -11,6 +11,15 @@ class ListsFormPage < BasePage
     self
   end
 
+  def add_new_task(content)
+    click_button "Add Task"
+    within all('.cards-container').last do
+      find('.text-input').set content
+    end
+
+    self
+  end
+
   def submit
     click_button "Save"
 

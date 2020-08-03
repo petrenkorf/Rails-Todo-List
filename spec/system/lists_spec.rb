@@ -24,4 +24,24 @@ RSpec.describe "User creates a list" do
       expect(page).to have_selector('.card', count: 1)
     end
   end
+
+  context "with task" do
+    it "redirects to lists page with success message" do
+      login_page
+        .visit_page
+        .fill_form("user1@email.com", "password")
+        .submit
+
+      expect(current_path).to eql(lists_path) 
+
+      list_form_page
+        .visit_page
+        .fill_form("Description", :public)
+        .add_new_task("Tarefa 1")
+        .submit
+
+      expect(current_path).to eql(lists_path)
+      expect(page).to have_selector('.card', count: 1)
+    end
+  end
 end

@@ -11,6 +11,11 @@
     <%= f.radio_button :public, false, :checked => true %>
     <%= f.label :public, "Private", :value => "false" %>
   </div>
+
+  <button id="addNewTask">Add Task</button>
+  <div class="cards-container">
+
+  </div>
   
   <div class="actions">
     <%= link_to "Back", :back, class: 'btn btn-secondary'  %>
@@ -18,3 +23,4 @@
   </div>
 <% end %>
 
+<%= javascript_pack_tag 'lists_new' %>
