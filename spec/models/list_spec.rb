@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe List do
+  let(:valid_params) {{user_id: 1, title: "title", public: true}}
+
   fixtures :users
 
   it "is valid with attributes" do
@@ -27,7 +29,9 @@ RSpec.describe List do
     expect(List.create(user_id: 1, title: "a"*101, public: true).valid?).to be false
   end
 
-  it "can be closed"
+  it "can be closed" do
+    expect(List.new(valid_params).close.closed?).to be(true)
+  end
 
   it "has tasks associated"
 end

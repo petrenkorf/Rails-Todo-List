@@ -14,6 +14,16 @@ class List < ApplicationRecord
     !self.closed
   end
 
+  def closed?
+    !open?
+  end
+
+  def close
+    self.closed = true
+
+    self
+  end
+
   protected
   
   def init
