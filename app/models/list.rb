@@ -7,8 +7,6 @@ class List < ApplicationRecord
 
   accepts_nested_attributes_for :tasks
 
-  after_initialize :init
-
   def public_visibility? 
     self.public
   end
@@ -18,7 +16,7 @@ class List < ApplicationRecord
   end
 
   def closed?
-    !open?
+    !self.open?
   end
 
   def close
@@ -27,10 +25,4 @@ class List < ApplicationRecord
     self
   end
 
-  protected
-  
-  def init
-    self.closed = false
-    self.public = false
-  end
 end
