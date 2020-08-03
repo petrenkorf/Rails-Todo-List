@@ -7,11 +7,11 @@ class List < ApplicationRecord
   after_initialize :init
 
   def public_visibility? 
-    return self.public
+    self.public
   end
 
   def open?
-    return !self.closed
+    !self.closed
   end
 
   protected
