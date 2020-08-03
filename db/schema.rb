@@ -14,7 +14,8 @@ ActiveRecord::Schema.define(version: 2020_07_30_232406) do
 
   create_table "lists", force: :cascade do |t|
     t.string "title", limit: 100
-    t.boolean "public"
+    t.boolean "public", default: false
+    t.boolean "closed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
