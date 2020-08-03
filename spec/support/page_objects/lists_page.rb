@@ -8,7 +8,7 @@ class ListsPage < BasePage
   def close_first_list
     within all('.cards-container').first do
       within all('.card').first do
-        #click_button "Close"
+        click_link "Close"
       end
     end
   end
