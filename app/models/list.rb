@@ -7,6 +7,8 @@ class List < ApplicationRecord
 
   accepts_nested_attributes_for :tasks
 
+  scope :visible_for_users, ->{ where(public: true) }
+
   def public_visibility? 
     self.public
   end
