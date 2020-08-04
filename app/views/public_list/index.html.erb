@@ -1,4 +1,7 @@
-<% @lists.each do |l| %>
-  <div class="card">
-  </div>
-<% end %>
+<div class="cards-container">
+  <% @lists.each do |list| %>
+    <div class="card">
+      <%= link_to "Bookmark", bookmarks_new_path(list_id: list.id), method: :post %>
+    </div>
+  <% end %>
+</div>
