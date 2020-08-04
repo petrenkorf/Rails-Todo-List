@@ -16,7 +16,11 @@ RSpec.describe Task do
   it "is not valid with empty description" do
     expect(Task.create({list_id: 1}).valid?). to be false
   end
-  it "is not valid if title length is greater than 100 characters"
+
+  it "is not valid if description length is greater than 255 characters" do
+    expect(Task.create({list_id: 1, description: "t"*256}).valid?).to be false
+  end
+
   it "can be closed"
   #it "has tasks associated"
 end
