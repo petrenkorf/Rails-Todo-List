@@ -3,7 +3,7 @@ class List < ApplicationRecord
   validates :public, inclusion: [false, true]
 
   belongs_to :user
-  has_many :tasks
+  has_many :tasks, as: :taskable
   has_many :bookmarks
 
   accepts_nested_attributes_for :tasks

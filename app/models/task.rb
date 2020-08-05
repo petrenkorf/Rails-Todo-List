@@ -1,7 +1,8 @@
 class Task < ApplicationRecord
   validates :description, presence: true, length: {maximum: 255}
 
-  belongs_to :list
+  belongs_to :taskable, polymorphic: true
+  has_many :tasks, as: :taskable
 
   after_initialize :set_defaults
 
