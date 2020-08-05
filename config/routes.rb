@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   post '/lists/close', to: 'list#close'
   get '/lists/public', to: 'public_list#index'
 
-  post '/bookmarks', to: 'bookmark_list#index'
+  get '/bookmarks', to: 'bookmark_list#index'
   post '/bookmarks/new', to: 'bookmark_list#new'
 end
