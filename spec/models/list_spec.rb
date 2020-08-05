@@ -44,4 +44,11 @@ RSpec.describe List do
 
     expect(list.tasks.count).to be(1)
   end
+
+  it "returns array containing ids of each user that bookmarked that list" do
+    list = List.create(valid_params)
+    list.bookmarks.create({user_id: 3})
+
+    expect(list.bookmark_user_ids).to eq([3])
+  end
 end

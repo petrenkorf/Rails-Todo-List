@@ -4,6 +4,7 @@ class List < ApplicationRecord
 
   belongs_to :user
   has_many :tasks
+  has_many :bookmarks
 
   accepts_nested_attributes_for :tasks
 
@@ -28,4 +29,7 @@ class List < ApplicationRecord
     self
   end
 
+  def bookmark_user_ids
+    self.bookmarks.map(&:user_id)
+  end
 end
