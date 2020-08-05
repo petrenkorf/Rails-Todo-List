@@ -3,4 +3,8 @@ class ListDecorator < SimpleDelegator
     @list = list
     super
   end
+
+  def message
+    "A lista de tarefas \"#{@list.title}\" foi atualizada."
+  end
 end

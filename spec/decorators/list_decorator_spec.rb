@@ -16,6 +16,10 @@ RSpec.describe ListDecorator do
     expect(list).to have_received(:close)
   end
 
-  it "formats list title"
+  it "prepares message to send to actioncable" do
+    list = double(list, title: 'titulo')
+
+    expect(ListDecorator.new(list).message).to eq("A lista de tarefas \"titulo\" foi atualizada.")
+  end
   it "broadcasts message to actioncable"
 end
