@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/lists/new', to: 'list#create'
   post '/lists/close', to: 'list#close'
   get '/lists/public', to: 'public_list#index'
+  get '/lists/:id', to: 'list#show'
 
   get '/bookmarks', to: 'bookmark_list#index'
   post '/bookmarks/new', to: 'bookmark_list#new'

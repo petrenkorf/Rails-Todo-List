@@ -16,6 +16,10 @@ class ListController < DashboardController
     redirect_to lists_path
   end
 
+  def show
+    @list = List.find(params[:id])
+  end
+
   def close
     ListDecorator
       .new(load_list_to_close)
