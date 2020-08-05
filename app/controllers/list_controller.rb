@@ -17,14 +17,19 @@ class ListController < DashboardController
   end
 
   def close
-    @list = List.where(id: params[:id], user_id: current_user.id).first
-    @list = ListDecorator.new(@list)
-    @list.close.save
+    ListDecorator
+      .new(load_list_to_close)
+      .close
+      .save
 
     redirect_to lists_path
   end
 
   protected
+
+  def load_list_to_close
+    List.where(id: params[:id], user_id: current_user.id).first
+  end
 
   def list_params
     params.require(:list).permit(
