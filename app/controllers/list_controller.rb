@@ -17,7 +17,9 @@ class ListController < DashboardController
   end
 
   def close
-    List.where(id: params[:id], user_id: current_user.id).first.close.save
+    @list = List.where(id: params[:id], user_id: current_user.id).first
+    @list = ListDecorator.new(@list)
+    @list.close.save
 
     redirect_to lists_path
   end
