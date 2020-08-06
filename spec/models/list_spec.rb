@@ -51,4 +51,12 @@ RSpec.describe List do
 
     expect(list.bookmark_user_ids).to eq([3])
   end
+
+  context "verifies if all children are done" do
+    it "has no children" do
+      list = List.create(valid_params)
+
+      expect(list.should_be_closed?).to be(false)
+    end
+  end
 end

@@ -32,4 +32,8 @@ class List < ApplicationRecord
   def bookmark_user_ids
     self.bookmarks.map(&:user_id)
   end
+
+  def should_be_closed?
+    return false if self.tasks.count == 0    
+  end
 end
