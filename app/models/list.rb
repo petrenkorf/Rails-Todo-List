@@ -35,5 +35,7 @@ class List < ApplicationRecord
 
   def should_be_closed?
     return false if self.tasks.count == 0    
+    
+    !(self.tasks.where(is_open: true).count > 0)
   end
 end

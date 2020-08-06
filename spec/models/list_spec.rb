@@ -58,5 +58,18 @@ RSpec.describe List do
 
       expect(list.should_be_closed?).to be(false)
     end
+    
+    it "has closed children" do
+      list = List.create({user_id: 1, title: "title", public: true, tasks_attributes: [{description: "task description"}]})
+      list.tasks.update(is_open: false)
+      
+      expect(list.should_be_closed?).to be(true)
+    end
+    
+    it "has open children" do
+      list = List.create({user_id: 1, title: "title", public: true, tasks_attributes: [{description: "task description"}]})
+
+      expect(list.should_be_closed?).to be(false)
+    end
   end
 end
