@@ -7,11 +7,11 @@ class Task < ApplicationRecord
   after_initialize :set_defaults
 
   def is_done?
-    @is_done
+    !@is_open
   end
 
   def mark_as_done
-    @is_done = true
+    @is_open = false
 
     self
   end
@@ -19,6 +19,6 @@ class Task < ApplicationRecord
   protected
 
   def set_defaults
-    @is_done = false
+    @is_open ||= true
   end
 end

@@ -22,11 +22,15 @@ RSpec.describe Task do
   end
 
   it "can be closed" do
+    task = Task.create(valid_params)
+
+    expect(task.mark_as_done.is_done?).to be true
+  end
+
+  it "closes taskable when all children of taskable are closed" do
     task = Task.new(valid_params)
     
     expect(task.mark_as_done.is_done?).to be true
   end
-
-  #it "has tasks associated"
 end
 
