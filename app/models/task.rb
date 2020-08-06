@@ -12,6 +12,9 @@ class Task < ApplicationRecord
 
   def mark_as_done
     @is_open = false
+    self.update(is_open: false)
+
+    taskable.close if taskable.should_be_closed?
 
     self
   end

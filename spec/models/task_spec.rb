@@ -24,13 +24,19 @@ RSpec.describe Task do
   it "can be closed" do
     task = Task.create(valid_params)
 
+    expect(task.taskable).to receive(:should_be_closed?)
+
     expect(task.mark_as_done.is_done?).to be true
   end
 
   it "closes taskable when all children of taskable are closed" do
-    task = Task.new(valid_params)
+    task = Task.create(valid_params)
     
-    expect(task.mark_as_done.is_done?).to be true
+    expect(task.taskable.closed?).to be false
+    
+    task.mark_as_done.save
+
+    expect(task.taskable.closed?).to be true
   end
 end
 
